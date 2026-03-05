@@ -18,7 +18,7 @@ export default function GalleryModal({ artwork, isOpen, onClose }: GalleryModalP
   // Reset index when opening a new artwork
   useEffect(() => {
     if (isOpen) {
-      setCurrentIndex(0);
+      setTimeout(() => setCurrentIndex(0), 0);
       document.body.style.overflow = "hidden"; // Prevent background scrolling
     } else {
       document.body.style.overflow = "unset";
