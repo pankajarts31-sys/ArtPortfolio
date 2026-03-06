@@ -128,13 +128,13 @@ export default function AboutSection() {
             <div className="space-y-8 relative">
               <div className="absolute -left-10 top-0 w-1 h-full bg-linear-to-b from-brass via-coffee to-transparent opacity-30 hidden md:block" />
               
-              <h3 className="text-3xl md:text-4xl text-white/90 tracking-wide font-medium" style={{ fontFamily: "var(--font-montserrat), sans-serif" }}>
+              <h3 className="text-3xl md:text-4xl tracking-wide font-medium" style={{ fontFamily: "var(--font-montserrat), sans-serif", color: "var(--theme-text)" }}>
                 Capturing <span className="text-gradient">Reality</span>
               </h3>
-              
-              <p 
-                className="text-xl md:text-2xl leading-relaxed text-gray-300 font-light max-w-2xl text-justify"
-                style={{ fontFamily: "var(--font-montserrat), sans-serif" }}
+
+              <p
+                className="text-base md:text-lg leading-relaxed font-light max-w-2xl text-justify"
+                style={{ fontFamily: "var(--font-montserrat), sans-serif", color: "var(--theme-text-muted)" }}
               >
                 {characters.map((char, index) => (
                   <motion.span
@@ -143,8 +143,8 @@ export default function AboutSection() {
                     whileInView={{ opacity: 1, filter: "blur(0px)" }}
                     viewport={{ once: true, margin: "-100px" }}
                     transition={{
-                      duration: 0.1,
-                      delay: index * 0.015,
+                      duration: 0.08,
+                      delay: index * 0.008,
                       ease: "easeOut",
                     }}
                   >
