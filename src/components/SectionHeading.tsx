@@ -21,21 +21,21 @@ export default function SectionHeading({
         className
       )}
     >
-      <h2 className="text-4xl md:text-5xl lg:text-7xl font-serif text-white uppercase tracking-wider">
+      <h2 className="text-4xl md:text-5xl lg:text-7xl font-serif uppercase tracking-wider" style={{ color: "var(--theme-text)" }}>
         {title}
       </h2>
-      
+
       {/* Glow effect stroke */}
-      <h2 
+      <h2
         className="absolute top-0 text-4xl md:text-5xl lg:text-7xl font-serif uppercase tracking-wider select-none text-transparent stroke-text blur-sm opacity-50"
-        style={{ WebkitTextStroke: "2px #CF9D7B", color: "transparent" }}
+        style={{ WebkitTextStroke: "2px #857861", color: "transparent" }}
         aria-hidden="true"
       >
         {title}
       </h2>
 
       {subtitle && (
-        <p className="mt-6 text-gray-400 text-lg md:text-xl max-w-2xl font-sans font-light tracking-wide">
+        <p className="mt-6 text-lg md:text-xl max-w-2xl font-sans font-light tracking-wide" style={{ color: "var(--theme-text-muted)" }}>
           {subtitle}
         </p>
       )}
@@ -45,7 +45,7 @@ export default function SectionHeading({
         "h-[1px] bg-gradient-to-r from-transparent via-brass to-transparent mt-8",
         centered ? "w-48" : "w-32",
       )} />
-      
+
       {/* Subtle glow under the line */}
       <div className={clsx(
         "h-4 bg-brass/30 blur-xl -mt-2",

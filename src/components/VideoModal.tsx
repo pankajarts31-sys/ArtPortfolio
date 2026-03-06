@@ -60,16 +60,18 @@ export default function VideoModal({ video, isOpen, onClose }: VideoModalProps) 
             animate={{ scale: 1, y: 0, opacity: 1 }}
             exit={{ scale: 0.95, opacity: 0 }}
             transition={{ type: "spring", damping: 25, stiffness: 300, delay: 0.1 }}
-            className="relative w-full max-w-md aspect-[9/16] bg-black rounded-3xl overflow-hidden shadow-[0_0_50px_rgba(207,157,123,0.15)] ring-1 ring-white/10"
+            className="relative w-full max-w-md aspect-[9/16] bg-black rounded-3xl overflow-hidden shadow-[0_0_50px_rgba(133,120,97,0.15)] ring-1 ring-white/10"
           >
             <video
               src={video.src}
               poster={video.thumbnail}
               controls
               autoPlay
+              muted
+              loop
+              playsInline
               controlsList="nodownload"
               className="w-full h-full object-cover"
-              playsInline
             />
             
             {/* Title overlay gradient */}

@@ -122,7 +122,7 @@ export default function GalleryModal({ artwork, isOpen, onClose }: GalleryModalP
                 {artwork.title}
               </h3>
               <p className="text-brass/80 text-sm tracking-widest font-light uppercase">
-                {artwork.category}
+                {artwork.images.length} Image{artwork.images.length > 1 ? "s" : ""}
               </p>
               
               {/* Pagination Dots */}

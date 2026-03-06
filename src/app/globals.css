@@ -1,97 +1,229 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-chinese-black: #0c1519;
-  --color-jungle-green: #162127;
-  --color-jet: #3a3534;
-  --color-coffee: #724b39;
-  --color-brass: #cf9d7b;
+  /* ── New Palette ─────────────────────────────────────────
+     Green Velvet  #29281E  →  dark bg (replaces chinese-black)
+     Golden Sand.  #857861  →  accent  (replaces brass / coffee)
+     Almond Light  #E7D4BB  →  light bg / dark-mode text
+     Plum Wine     #48252F  →  special accent
+  ───────────────────────────────────────────────────────── */
+  --color-chinese-black: #29281E;
+  --color-jungle-green:  #332f22;
+  --color-jet:           #3e3928;
+  --color-coffee:        #48252F;
+  --color-brass:         #857861;
+  --color-almond:        #E7D4BB;
+  --color-plum:          #48252F;
+  --color-golden:        #857861;
 
-  --color-background: var(--color-chinese-black);
-  --color-foreground: #ffffff;
+  --color-background: var(--theme-bg);
+  --color-foreground: var(--theme-text);
 
-  --font-sans: var(--font-inter), sans-serif;
-  --font-serif: var(--font-playfair), serif;
+  --font-sans:    var(--font-inter),     sans-serif;
+  --font-serif:   var(--font-playfair),  serif;
+  --font-display: var(--font-cormorant), serif;
 
-  --animate-float: float 6s ease-in-out infinite;
-  --animate-glow: glow 4s ease-in-out infinite;
-  --animate-tilt-scroll: tiltScroll 20s linear infinite;
+  --animate-float:      float      6s  ease-in-out infinite;
+  --animate-glow:       glow       4s  ease-in-out infinite;
+  --animate-tilt-scroll:tiltScroll 20s linear     infinite;
+  --animate-shimmer:    shimmer    3s  ease-in-out infinite;
+  --animate-orbit:      orbit      20s linear     infinite;
+  --animate-drift:      drift      8s  ease-in-out infinite;
 
   @keyframes float {
-    0%,
-    100% {
-      transform: translateY(0);
-    }
-    50% {
-      transform: translateY(-10px);
-    }
+    0%, 100% { transform: translateY(0); }
+    50%       { transform: translateY(-10px); }
   }
-
   @keyframes glow {
-    0%,
-    100% {
-      opacity: 0.5;
-      filter: brightness(1) blur(20px);
-    }
-    50% {
-      opacity: 0.8;
-      filter: brightness(1.2) blur(30px);
-    }
+    0%, 100% { opacity: 0.5; filter: brightness(1)   blur(20px); }
+    50%       { opacity: 0.8; filter: brightness(1.2) blur(30px); }
   }
-
   @keyframes tiltScroll {
-    from {
-      transform: translateX(0) rotate(-5deg);
-    }
-    to {
-      transform: translateX(-50%) rotate(-5deg);
-    }
+    from { transform: translateX(0)    rotate(-5deg); }
+    to   { transform: translateX(-50%) rotate(-5deg); }
+  }
+  @keyframes shimmer {
+    0%   { background-position: -200% center; }
+    100% { background-position:  200% center; }
+  }
+  @keyframes orbit {
+    from { transform: rotate(0deg)   translateX(120px) rotate(0deg); }
+    to   { transform: rotate(360deg) translateX(120px) rotate(-360deg); }
+  }
+  @keyframes drift {
+    0%,  100% { transform: translate(0,    0)   scale(1);    }
+    25%        { transform: translate(30px, -20px) scale(1.05); }
+    50%        { transform: translate(-20px, 15px) scale(0.95); }
+    75%        { transform: translate(15px,  25px) scale(1.02); }
   }
 }
 
+/* ══════════════════════════════════════════════════
+   THEME CSS VARIABLES
+   Default = DARK  |  html.light = LIGHT
+══════════════════════════════════════════════════ */
 :root {
-  background: var(--color-background);
-  color: var(--color-foreground);
+  /* Dark theme (default) */
+  --theme-bg:           #29281E;
+  --theme-surface:      #332f22;
+  --theme-card:         #3e3928;
+  --theme-text:         #E7D4BB;
+  --theme-text-muted:   #a09070;
+  --theme-accent:       #857861;
+  --theme-special:      #48252F;
+  --theme-border:       rgba(133, 120, 97, 0.25);
+  --theme-glass-bg:     rgba(22, 20, 14, 0.55);
+  --theme-glass-border: rgba(133, 120, 97, 0.15);
+  --theme-scrollbar-bg: #29281E;
+  --theme-scrollbar-th: #3e3928;
+  --theme-vignette:     #29281E;
   color-scheme: dark;
+}
+
+html.light {
+  /* Light theme */
+  --theme-bg:           #E7D4BB;
+  --theme-surface:      #f0e5d0;
+  --theme-card:         #f8f0e4;
+  --theme-text:         #29281E;
+  --theme-text-muted:   #6b5e4a;
+  --theme-accent:       #857861;
+  --theme-special:      #48252F;
+  --theme-border:       rgba(41, 40, 30, 0.18);
+  --theme-glass-bg:     rgba(231, 212, 187, 0.55);
+  --theme-glass-border: rgba(41, 40, 30, 0.12);
+  --theme-scrollbar-bg: #E7D4BB;
+  --theme-scrollbar-th: #c8b89a;
+  --theme-vignette:     #E7D4BB;
+  color-scheme: light;
+}
+
+/* ══════════════════════════════════════════════════
+   BASE STYLES
+══════════════════════════════════════════════════ */
+html {
+  scroll-behavior: smooth;
+  background-color: var(--theme-bg);
+  color: var(--theme-text);
 }
 
 body {
   font-family: var(--font-sans);
-  background-color: var(--color-chinese-black);
-  color: #fff;
+  background-color: var(--theme-bg);
+  color: var(--theme-text);
   overflow-x: hidden;
-  smooth-scroll: true;
 }
 
-/* Custom Scrollbar for Webkit */
-::-webkit-scrollbar {
-  width: 8px;
-}
-::-webkit-scrollbar-track {
-  background: var(--color-chinese-black);
-}
+/* ══════════════════════════════════════════════════
+   SCROLLBAR
+══════════════════════════════════════════════════ */
+::-webkit-scrollbar       { width: 8px; }
+::-webkit-scrollbar-track { background: var(--theme-scrollbar-bg); }
 ::-webkit-scrollbar-thumb {
-  background: var(--color-jet);
+  background: var(--theme-scrollbar-th);
   border-radius: 4px;
 }
-::-webkit-scrollbar-thumb:hover {
-  background: var(--color-coffee);
-}
+::-webkit-scrollbar-thumb:hover { background: var(--theme-accent); }
 
-html {
-  scroll-behavior: smooth;
-}
-
+/* ══════════════════════════════════════════════════
+   GLASS CARD
+══════════════════════════════════════════════════ */
 .glass {
-  background: rgba(22, 33, 39, 0.4);
+  background: var(--theme-glass-bg);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--theme-glass-border);
 }
 
+/* ══════════════════════════════════════════════════
+   SHIMMER TEXT GRADIENT  (light / dark aware)
+══════════════════════════════════════════════════ */
 .text-gradient {
-  background: linear-gradient(to right, #ffffff, #cf9d7b);
+  background: linear-gradient(
+    90deg,
+    #E7D4BB 0%, #857861 25%, #E7D4BB 50%, #857861 75%, #E7D4BB 100%
+  );
+  background-size: 200% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  animation: shimmer 4s linear infinite;
+}
+
+html.light .text-gradient {
+  background: linear-gradient(
+    90deg,
+    #29281E 0%, #857861 25%, #29281E 50%, #857861 75%, #29281E 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 4s linear infinite;
+}
+
+/* ══════════════════════════════════════════════════
+   LIGHT-MODE COLOUR OVERRIDES
+   These map the existing dark-themed Tailwind classes
+   to their light-mode equivalents without touching JSX.
+══════════════════════════════════════════════════ */
+html.light .bg-chinese-black,
+html.light .bg-jungle-green,
+html.light .bg-jet,
+html.light main.bg-chinese-black,
+html.light section.bg-chinese-black {
+  background-color: var(--theme-bg) !important;
+}
+
+/* Section surfaces (about bg-chinese-black already covered above) */
+html.light section {
+  background-color: var(--theme-bg);
+  color: var(--theme-text);
+}
+
+/* Text colours */
+html.light .text-white   { color: var(--theme-text)       !important; }
+html.light .text-gray-300 { color: #4a3f30                !important; }
+html.light .text-gray-400 { color: #6b5e4a                !important; }
+html.light .text-gray-500 { color: #8a7a6a                !important; }
+
+/* Borders */
+html.light .border-white\/10 { border-color: var(--theme-border)       !important; }
+html.light .border-white\/5  { border-color: rgba(41, 40, 30, 0.08)   !important; }
+
+/* Backgrounds using white opacity */
+html.light .bg-white\/5  { background-color: rgba(41, 40, 30, 0.07)  !important; }
+html.light .bg-white\/10 { background-color: rgba(41, 40, 30, 0.1)   !important; }
+
+/* Footer + transition lines */
+html.light footer.bg-chinese-black {
+  background-color: var(--theme-surface) !important;
+  border-color: var(--theme-border) !important;
+}
+html.light .via-white\/10 { --tw-gradient-via: rgba(41, 40, 30, 0.15) !important; }
+
+/* Radial vignette override */
+html.light .bg-\[radial-gradient\(ellipse_at_center\,transparent_30\%\,\#0c1519_80\%\)\] {
+  background: radial-gradient(ellipse at center, transparent 30%, var(--theme-bg) 80%) !important;
+}
+
+/* About section parallax text */
+html.light .stroke-text { -webkit-text-stroke-color: #857861 !important; }
+
+/* Input fields in light mode */
+html.light input,
+html.light textarea {
+  background-color: var(--theme-card) !important;
+  color: var(--theme-text) !important;
+  border-color: var(--theme-border) !important;
+}
+html.light input::placeholder,
+html.light textarea::placeholder {
+  color: var(--theme-text-muted) !important;
+}
+
+/* Selection */
+::selection {
+  background-color: #857861;
+  color: #E7D4BB;
 }
