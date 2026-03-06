@@ -25,6 +25,7 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://pankajverse.me"),
   title: "Pankaj | Cinematic Pencil & Charcoal Realism Artist",
   description:
     "Premium portfolio of Pankaj, an elite artist specializing in hyper-realistic cinematic pencil and charcoal drawings. Explore the gallery of emotions brought to life.",
@@ -33,7 +34,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Pankaj | Cinematic Pencil & Charcoal Realism Artist",
     description: "Premium portfolio of Pankaj, specializing in cinematic pencil and charcoal realism art.",
-    url: "https://pankajart.com",
+    url: "https://pankajverse.me",
     siteName: "Pankaj Art Portfolio",
     images: [
       {
@@ -90,7 +91,7 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "Person",
               name: "Pankaj",
-              url: "https://pankajart.com",
+              url: "https://pankajverse.me",
               jobTitle: "Pencil & Charcoal Realism Artist",
               sameAs: [
                 "https://instagram.com/pankajart",
