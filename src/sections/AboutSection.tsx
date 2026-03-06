@@ -47,7 +47,7 @@ export default function AboutSection() {
   const characters = textToAnimate.split("");
 
   return (
-    <section id="about" ref={containerRef} className="relative py-32 overflow-hidden text-white" style={{ backgroundColor: "var(--theme-bg)", color: "var(--theme-text)" }}>
+    <section id="about" ref={containerRef} className="relative py-16 md:py-32 overflow-hidden text-white" style={{ backgroundColor: "var(--theme-bg)", color: "var(--theme-text)" }}>
       {/* Tilted Running Lines Background */}
       <div className="absolute inset-0 z-0 opacity-5 pointer-events-none overflow-hidden flex flex-col justify-center -rotate-6 scale-125">
         <motion.div style={{ x: bgTextX1, WebkitTextStroke: "2px #857861" }} className="whitespace-nowrap font-serif text-[10rem] md:text-[15rem] leading-none mb-10 font-bold uppercase text-transparent stroke-text">
@@ -63,7 +63,7 @@ export default function AboutSection() {
           <SectionHeading title="About Me" subtitle="The Artist Behind the Canvas" />
         </ScrollReveal>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 mt-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-16 lg:gap-24 mt-8 md:mt-16 items-center">
           {/* Left Column - Video Player */}
           <ScrollReveal animation="slide-right" delay={0.2} className="relative group">
             <div className="relative aspect-video rounded-2xl overflow-hidden glass shadow-2xl ring-1 ring-white/10">
@@ -125,10 +125,10 @@ export default function AboutSection() {
 
           {/* Right Column - Animated Text */}
           <ScrollReveal animation="slide-left" delay={0.4}>
-            <div className="space-y-8 relative">
+            <div className="space-y-4 md:space-y-8 relative">
               <div className="absolute -left-10 top-0 w-1 h-full bg-linear-to-b from-brass via-coffee to-transparent opacity-30 hidden md:block" />
               
-              <h3 className="text-3xl md:text-4xl tracking-wide font-medium" style={{ fontFamily: "var(--font-montserrat), sans-serif", color: "var(--theme-text)" }}>
+              <h3 className="text-2xl md:text-3xl lg:text-4xl tracking-wide font-medium" style={{ fontFamily: "var(--font-montserrat), sans-serif", color: "var(--theme-text)" }}>
                 Capturing <span className="text-gradient">Reality</span>
               </h3>
 
@@ -141,7 +141,7 @@ export default function AboutSection() {
                     key={index}
                     initial={{ opacity: 0, filter: "blur(5px)" }}
                     whileInView={{ opacity: 1, filter: "blur(0px)" }}
-                    viewport={{ once: true, margin: "-100px" }}
+                    viewport={{ once: true, margin: "0px" }}
                     transition={{
                       duration: 0.08,
                       delay: index * 0.008,
@@ -153,13 +153,13 @@ export default function AboutSection() {
                 ))}
               </p>
 
-              <div className="pt-6">
-                <motion.div 
+              <div className="pt-2 md:pt-6">
+                <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ delay: 1, duration: 0.8 }}
-                  className="flex gap-8 border-t pt-8" style={{ borderColor: "var(--theme-border)" }}
+                  transition={{ delay: 0.4, duration: 0.8 }}
+                  className="flex gap-6 md:gap-8 border-t pt-4 md:pt-8" style={{ borderColor: "var(--theme-border)" }}
                 >
                   <div>
                     <h4 className="text-brass text-3xl font-serif">5+</h4>
