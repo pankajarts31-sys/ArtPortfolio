@@ -51,19 +51,4 @@ export const videoData: PortfolioVideo[] = [
     title: "Pencil Art Reel",
     src: "/videos/VID_20251119_214146_805.mp4",
   },
-  {
-    id: "vid-10",
-    title: "BW Portrait Full Process",
-    src: "/videos/BW_FINAL.mp4",
-  },
-  {
-    id: "vid-11",
-    title: "Complete Portrait Drawing",
-    src: "/videos/FINAL.mp4",
-  },
-  {
-    id: "vid-12",
-    title: "Art Process Video",
-    src: "/videos/vd.mp4",
-  },
 ];
