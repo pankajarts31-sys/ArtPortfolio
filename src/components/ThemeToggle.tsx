@@ -32,7 +32,7 @@ export default function ThemeToggle() {
       transition={{ delay: 1.8, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
       onClick={toggle}
       aria-label="Toggle light/dark theme"
-      className="fixed top-5 right-5 z-50 w-11 h-11 rounded-full glass flex items-center justify-center transition-all duration-300 hover:shadow-[0_0_20px_rgba(133,120,97,0.45)] hover:scale-110"
+      className="fixed bottom-[max(1.25rem,env(safe-area-inset-bottom))] right-[max(1.25rem,env(safe-area-inset-right))] md:top-5 md:right-5 md:bottom-auto z-50 w-11 h-11 rounded-full glass flex items-center justify-center transition-all duration-300 hover:shadow-[0_0_20px_rgba(133,120,97,0.45)] hover:scale-110"
       style={{ borderColor: "var(--theme-border)" }}
     >
       <motion.div
